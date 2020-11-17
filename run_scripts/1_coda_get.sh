@@ -18,8 +18,6 @@ DATASETS=(
     "OXFAM_WASH_s01e01"
     "OXFAM_WASH_s01e02"
     "OXFAM_WASH_s01e03"
-    "OXFAM_WASH_s01e04"
-    "OXFAM_WASH_s01e05"
 
     "OXFAM_WASH_age"
     "OXFAM_WASH_gender"

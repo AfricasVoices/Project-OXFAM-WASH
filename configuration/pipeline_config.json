@@ -41,14 +41,6 @@
     {"RapidProKey": "Rqa_S01E03 (Run ID) - oxfam_wash_s01e03_activation", "PipelineKey": "rqa_s01e03_run_id"},
     {"RapidProKey": "Rqa_S01E03 (Time) - oxfam_wash_s01e03_activation", "PipelineKey": "sent_on"},
 
-    {"RapidProKey": "Rqa_S01E04 (Text) - oxfam_wash_s01e04_activation", "PipelineKey": "rqa_s01e04_raw", "IsActivationMessage": true},
-    {"RapidProKey": "Rqa_S01E04 (Run ID) - oxfam_wash_s01e04_activation", "PipelineKey": "rqa_s01e04_run_id"},
-    {"RapidProKey": "Rqa_S01E04 (Time) - oxfam_wash_s01e04_activation", "PipelineKey": "sent_on"},
-
-    {"RapidProKey": "Rqa_S01E05 (Text) - oxfam_wash_s01e05_activation", "PipelineKey": "rqa_s01e05_raw", "IsActivationMessage": true},
-    {"RapidProKey": "Rqa_S01E05 (Run ID) - oxfam_wash_s01e05_activation", "PipelineKey": "rqa_s01e05_run_id"},
-    {"RapidProKey": "Rqa_S01E05 (Time) - oxfam_wash_s01e05_activation", "PipelineKey": "sent_on"},
-
     {"RapidProKey": "Constituency (Text) - oxfam_wash_s01_demog", "PipelineKey": "location_raw"},
     {"RapidProKey": "Constituency (Time) - oxfam_wash_s01_demog", "PipelineKey": "location_time"},
     {"RapidProKey": "Gender (Text) - oxfam_wash_s01_demog", "PipelineKey": "gender_raw"},

@@ -4,7 +4,7 @@
     {
       "SourceType": "RapidPro",
       "Domain": "textit.in",
-      "TokenFileURL": "gs://avf-credentials/unicef-kenya-textit-token.txt",
+      "TokenFileURL": "gs://avf-credentials/oxfam-kenya-textit-token.txt",
       "ContactsFileName": "oxfam_wash_contacts",
       "ActivationFlowNames": [
         "oxfam_wash_s01e01_activation",

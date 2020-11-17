@@ -9,9 +9,7 @@
       "ActivationFlowNames": [
         "oxfam_wash_s01e01_activation",
         "oxfam_wash_s01e02_activation",
-        "oxfam_wash_s01e03_activation",
-        "oxfam_wash_s01e04_activation",
-        "oxfam_wash_s01e05_activation"
+        "oxfam_wash_s01e03_activation"
       ],
       "SurveyFlowNames": [
         "oxfam_wash_s01_demog"
@@ -48,9 +46,9 @@
     {"RapidProKey": "Age (Text) - oxfam_wash_s01_demog", "PipelineKey": "age_raw"},
     {"RapidProKey": "Age (Time) - oxfam_wash_s01_demog", "PipelineKey": "age_time"}
   ],
-  "ProjectStartDate": "2020-11-17T10:30:00+03:00",
+  "ProjectStartDate": "2020-01-01T00:30:00+03:00",
   "ProjectEndDate": "2100-01-01T00:00:00+03:00",
-  "FilterTestMessages": true,
+  "FilterTestMessages": false,
   "MoveWSMessages": true,
   "AutomatedAnalysis": {
     "GenerateCountyThemeDistributionMaps": true,

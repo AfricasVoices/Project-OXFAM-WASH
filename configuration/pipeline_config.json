@@ -48,9 +48,9 @@
     {"RapidProKey": "Disabled (Text) - oxfam_wash_s01_demog", "PipelineKey": "disabled_raw"},
     {"RapidProKey": "Disabled (Time) - oxfam_wash_s01_demog", "PipelineKey": "disabled_time"}
   ],
-  "ProjectStartDate": "2020-11-29T00:30:00+03:00",
+  "ProjectStartDate": "2020-11-28T00:30:00+03:00",
   "ProjectEndDate": "2100-01-01T00:00:00+03:00",
-  "FilterTestMessages": false,
+  "FilterTestMessages": true,
   "MoveWSMessages": true,
   "AutomatedAnalysis": {
     "GenerateCountyThemeDistributionMaps": true,

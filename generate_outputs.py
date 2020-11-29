@@ -104,7 +104,7 @@ if __name__ == "__main__":
         data = ApplyManualCodes.apply_manual_codes(user, data, prev_coded_dir_path)
 
         log.info("Filtering out Messages labelled as Noise_Other_Channel...")
-        data = MessageFilters.filter_noise_other_channel(
+        data = MessageFilters.filter_noise_codes(
             data, PipelineConfiguration.RQA_CODING_PLANS + PipelineConfiguration.SURVEY_CODING_PLANS)
 
         log.info("Generating Analysis CSVs...")

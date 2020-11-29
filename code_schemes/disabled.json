@@ -59,6 +59,15 @@
       "VisibleInCoda": false
     },
     {
+      "CodeID": "code-NOC-4eb70633",
+      "ControlCode": "NOC",
+      "StringValue": "NOC",
+      "DisplayText": "Noise (Other Channel)",
+      "VisibleInCoda": true,
+      "NumericValue": -60,
+      "CodeType": "Control"
+    },
+    {
       "CodeID": "code-STOP-08b832a8",
       "CodeType": "Control",
       "ControlCode": "STOP",

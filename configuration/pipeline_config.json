@@ -1,0 +1,67 @@
+{
+  "PipelineName": "OXFAM-WASH",
+  "RawDataSources": [
+    {
+      "SourceType": "RapidPro",
+      "Domain": "textit.in",
+      "TokenFileURL": "gs://avf-credentials/oxfam-kenya-textit-token.txt",
+      "ContactsFileName": "oxfam_wash_contacts",
+      "ActivationFlowNames": [
+        "oxfam_wash_s01e01_activation",
+        "oxfam_wash_s01e02_activation",
+        "oxfam_wash_s01e03_activation"
+      ],
+      "SurveyFlowNames": [
+        "oxfam_wash_s01_demog"
+      ],
+      "TestContactUUIDs": [
+        "94075043-57c6-43c7-8b89-880478ccad8e",
+        "0e56c4f8-8714-49c0-8d1f-a5a75c21b1c9"
+      ]
+    }
+  ],
+  "PhoneNumberUuidTable": {
+    "FirebaseCredentialsFileURL": "gs://avf-credentials/avf-id-infrastructure-firebase-adminsdk-6xps8-b9173f2bfd.json",
+    "TableName": "OXFAM_KENYA_phone_number_avf_phone_id"
+  },
+  "RapidProKeyRemappings": [
+    {"RapidProKey": "avf_phone_id", "PipelineKey": "uid"},
+    
+    {"RapidProKey": "Rqa_S01E01 (Text) - oxfam_wash_s01e01_activation", "PipelineKey": "rqa_s01e01_raw", "IsActivationMessage": true},
+    {"RapidProKey": "Rqa_S01E01 (Run ID) - oxfam_wash_s01e01_activation", "PipelineKey": "rqa_s01e01_run_id"},
+    {"RapidProKey": "Rqa_S01E01 (Time) - oxfam_wash_s01e01_activation", "PipelineKey": "sent_on"},
+
+    {"RapidProKey": "Rqa_S01E02 (Text) - oxfam_wash_s01e02_activation", "PipelineKey": "rqa_s01e02_raw", "IsActivationMessage": true},
+    {"RapidProKey": "Rqa_S01E02 (Run ID) - oxfam_wash_s01e02_activation", "PipelineKey": "rqa_s01e02_run_id"},
+    {"RapidProKey": "Rqa_S01E02 (Time) - oxfam_wash_s01e02_activation", "PipelineKey": "sent_on"},
+
+    {"RapidProKey": "Rqa_S01E03 (Text) - oxfam_wash_s01e03_activation", "PipelineKey": "rqa_s01e03_raw", "IsActivationMessage": true},
+    {"RapidProKey": "Rqa_S01E03 (Run ID) - oxfam_wash_s01e03_activation", "PipelineKey": "rqa_s01e03_run_id"},
+    {"RapidProKey": "Rqa_S01E03 (Time) - oxfam_wash_s01e03_activation", "PipelineKey": "sent_on"},
+
+    {"RapidProKey": "Constituency (Text) - oxfam_wash_s01_demog", "PipelineKey": "location_raw"},
+    {"RapidProKey": "Constituency (Time) - oxfam_wash_s01_demog", "PipelineKey": "location_time"},
+    {"RapidProKey": "Gender (Text) - oxfam_wash_s01_demog", "PipelineKey": "gender_raw"},
+    {"RapidProKey": "Gender (Time) - oxfam_wash_s01_demog", "PipelineKey": "gender_time"},
+    {"RapidProKey": "Age (Text) - oxfam_wash_s01_demog", "PipelineKey": "age_raw"},
+    {"RapidProKey": "Age (Time) - oxfam_wash_s01_demog", "PipelineKey": "age_time"}
+  ],
+  "ProjectStartDate": "2020-01-01T00:30:00+03:00",
+  "ProjectEndDate": "2100-01-01T00:00:00+03:00",
+  "FilterTestMessages": false,
+  "MoveWSMessages": true,
+  "AutomatedAnalysis": {
+    "GenerateCountyThemeDistributionMaps": true,
+    "GenerateConstituencyThemeDistributionMaps": true
+  },
+  "DriveUpload": {
+    "DriveCredentialsFileURL": "gs://avf-credentials/pipeline-runner-service-acct-avf-data-core-64cc71459fe7.json",
+    "ProductionUploadPath": "oxfam_wash_analysis_outputs/oxfam_wash_production.csv",
+    "MessagesUploadPath": "oxfam_wash_analysis_outputs/oxfam_wash_messages.csv",
+    "IndividualsUploadPath": "oxfam_wash_analysis_outputs/oxfam_wash_individuals.csv",
+    "AutomatedAnalysisDir": "oxfam_wash_analysis_outputs/automated_analysis"
+  },
+  "MemoryProfileUploadBucket": "gs://avf-pipeline-logs-performance-nearline",
+  "DataArchiveUploadBucket": "gs://pipeline-execution-backup-archive",
+  "BucketDirPath": "2020/OXFAM-WASH"
+}

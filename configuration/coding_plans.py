@@ -140,6 +140,21 @@ def get_demog_coding_plans(pipeline_name):
                    ],
                    code_imputation_function=code_imputation_functions.impute_kenya_location_codes,
                    ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("location"),
+                   raw_field_fold_strategy=FoldStrategies.assert_equal),
+
+        CodingPlan(raw_field="disabled_raw",
+                   time_field="disabled_time",
+                   coda_filename="OXFAM_WASH_disabled.json",
+                   coding_configurations=[
+                       CodingConfiguration(
+                           coding_mode=CodingModes.SINGLE,
+                           code_scheme=CodeSchemes.DISABLED,
+                           coded_field="disabled_coded",
+                           analysis_file_key="disabled",
+                           fold_strategy=FoldStrategies.assert_label_ids_equal
+                       )
+                   ],
+                   ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("disabled"),
                    raw_field_fold_strategy=FoldStrategies.assert_equal)
     ]
 

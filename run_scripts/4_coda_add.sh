@@ -22,6 +22,7 @@ DATASETS=(
     "OXFAM_WASH_age"
     "OXFAM_WASH_gender"
     "OXFAM_WASH_location"
+    "OXFAM_WASH_disabled"
 )
 
 cd "$CODA_V2_ROOT/data_tools"

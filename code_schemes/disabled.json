@@ -4,6 +4,22 @@
   "Version": "0.0.0.6",
   "Codes": [
     {
+      "CodeID": "code-eb714938",
+      "CodeType": "Normal",
+      "DisplayText": "yes",
+      "NumericValue": 1,
+      "StringValue": "yes",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-975d6dca",
+      "CodeType": "Normal",
+      "DisplayText": "no",
+      "NumericValue": 2,
+      "StringValue": "no",
+      "VisibleInCoda": true
+    },
+    {
       "CodeID": "code-E-720cdb66",
       "CodeType": "Meta",
       "MetaCode": "escalate",

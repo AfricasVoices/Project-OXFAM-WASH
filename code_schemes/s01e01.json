@@ -90,6 +90,62 @@
       "VisibleInCoda": true
     },
     {
+      "CodeID": "code-0d3c7637",
+      "CodeType": "Normal",
+      "DisplayText": "inadequate finance",
+      "NumericValue": 8,
+      "StringValue": "inadequate_finance",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-1d179272",
+      "CodeType": "Normal",
+      "DisplayText": "lack of water",
+      "NumericValue": 9,
+      "StringValue": "lack_of_water",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-798731d7",
+      "CodeType": "Normal",
+      "DisplayText": "lack of soap",
+      "NumericValue": 10,
+      "StringValue": "lack_of_soap",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-3b6e4b3f",
+      "CodeType": "Normal",
+      "DisplayText": "ignorance",
+      "NumericValue": 11,
+      "StringValue": "ignorance",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-c2e6b81a",
+      "CodeType": "Normal",
+      "DisplayText": "nothing",
+      "NumericValue": 12,
+      "StringValue": "nothing",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-9f88f184",
+      "CodeType": "Normal",
+      "DisplayText": "to protect themselves",
+      "NumericValue": 13,
+      "StringValue": "to_protect_themselves",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-b4c31b6e",
+      "CodeType": "Normal",
+      "DisplayText": "other theme",
+      "NumericValue": 14,
+      "StringValue": "other_theme",
+      "VisibleInCoda": true
+    },
+    {
       "CodeID": "code-NA-f93d3eb7",
       "CodeType": "Control",
       "ControlCode": "NA",

@@ -1,19 +1,48 @@
 import csv
 from collections import OrderedDict
 import sys
+import time
 
 from core_data_modules.cleaners import Codes
 from core_data_modules.traced_data import Metadata
-from core_data_modules.traced_data.io import TracedDataCSVIO
 from core_data_modules.traced_data.util import FoldTracedData
 from core_data_modules.traced_data.util.fold_traced_data import FoldStrategies
-from core_data_modules.util import TimeUtils
 
 from src.lib import PipelineConfiguration, ConsentUtils
 from src.lib.configuration_objects import CodingModes
 
-
 class AnalysisFile(object):
+    @staticmethod
+    def tag_beneficiary_participants(user, data, pipeline_configuration, raw_data_dir):
+        """
+        This tags uids who are our partners beneficiaries.
+        :param user: Identifier of the user running this program, for TracedData Metadata.
+        :type user: str
+        :param data: TracedData objects to tag listening group participation to.
+        :type data: iterable of TracedData
+        :param raw_data_dir: Directory containing de-identified beneficiary contacts CSVs containing
+                                    beneficiary data stored as `avf-phone-uuid` and `location` columns.
+        :type user: str
+        :param pipeline_configuration: Pipeline configuration.
+        :type pipeline_configuration: PipelineConfiguration
+        """
+        beneficiary_uids = set()  # Contains avf-phone ids of partner beneficiaries.
+
+        # Read beneficiary file CSVs data
+        for beneficiary_file_url in pipeline_configuration.beneficiary_file_urls:
+            with open(f'{raw_data_dir}/{beneficiary_file_url.split("/")[-1]}', "r", encoding='utf-8-sig') as f:
+                beneficiary_data = list(csv.DictReader(f))
+                for row in beneficiary_data:
+                    beneficiary_uids.add(row['avf-phone-uuid'])
+
+        # 1.Check if a participant is part of the beneficiary contacts then tag true or false otherwise
+        #   Example - "beneficiary": true
+        for td in data:
+            beneficiary_data = dict()  # of uid repeat and weekly listening group participation data
+            beneficiary_data["beneficiary"] = td["uid"] in beneficiary_uids
+
+            td.append_data(beneficiary_data, Metadata(user, Metadata.get_call_location(), time.time()))
+
     @staticmethod
     def export_to_csv(user, data, csv_path, export_keys, consent_withdrawn_key):
         with open(csv_path, "w") as f:
@@ -63,7 +92,7 @@ class AnalysisFile(object):
                 writer.writerow(analysis_dict)
 
     @classmethod
-    def generate(cls, user, data, csv_by_message_output_path, csv_by_individual_output_path):
+    def generate(cls, user, data, pipeline_configuration, raw_data_dir, csv_by_message_output_path, csv_by_individual_output_path):
         # Serializer is currently overflowing
         # TODO: Investigate/address the cause of this.
         sys.setrecursionlimit(15000)
@@ -80,7 +109,7 @@ class AnalysisFile(object):
         fold_strategies["uid"] = FoldStrategies.assert_equal
         fold_strategies[consent_withdrawn_key] = FoldStrategies.boolean_or
 
-        export_keys = ["uid", consent_withdrawn_key]
+        export_keys = ["uid", consent_withdrawn_key, "beneficiary"]
 
         for plan in PipelineConfiguration.RQA_CODING_PLANS + PipelineConfiguration.SURVEY_CODING_PLANS:
             for cc in plan.coding_configurations:
@@ -110,6 +139,9 @@ class AnalysisFile(object):
 
         ConsentUtils.set_stopped(user, data, consent_withdrawn_key)
         ConsentUtils.set_stopped(user, folded_data, consent_withdrawn_key)
+
+        # Tag listening group participants
+        cls.tag_beneficiary_participants(user, data, pipeline_configuration, raw_data_dir)
 
         cls.export_to_csv(user, data, csv_by_message_output_path, export_keys, consent_withdrawn_key)
         cls.export_to_csv(user, folded_data, csv_by_individual_output_path, export_keys, consent_withdrawn_key)

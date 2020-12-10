@@ -108,7 +108,7 @@ if __name__ == "__main__":
             data, PipelineConfiguration.RQA_CODING_PLANS + PipelineConfiguration.SURVEY_CODING_PLANS)
 
         log.info("Generating Analysis CSVs...")
-        messages_data, individuals_data = AnalysisFile.generate(user, data, csv_by_message_output_path,
+        messages_data, individuals_data = AnalysisFile.generate(user, data, pipeline_configuration, raw_data_dir, csv_by_message_output_path,
                                                                 csv_by_individual_output_path)
 
         log.info("Writing messages TracedData to file...")

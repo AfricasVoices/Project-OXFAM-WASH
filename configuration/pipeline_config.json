@@ -24,6 +24,11 @@
     "FirebaseCredentialsFileURL": "gs://avf-credentials/avf-id-infrastructure-firebase-adminsdk-6xps8-b9173f2bfd.json",
     "TableName": "OXFAM_KENYA_phone_number_avf_phone_id"
   },
+  "BeneficiaryFileURLs":[
+    "gs://avf-project-datasets/2020/OXFAM-WASH/oxfam_wash_kisumu_beneficiaries_deindentified.csv",
+    "gs://avf-project-datasets/2020/OXFAM-WASH/oxfam_wash_mombasa_beneficiaries_deindentified.csv",
+    "gs://avf-project-datasets/2020/OXFAM-WASH/oxfam_wash_nairobi_beneficiaries_deidentified.csv"
+    ],
   "RapidProKeyRemappings": [
     {"RapidProKey": "avf_phone_id", "PipelineKey": "uid"},
     

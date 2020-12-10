@@ -20,7 +20,7 @@ class PipelineConfiguration(object):
     def __init__(self, pipeline_name, raw_data_sources, phone_number_uuid_table, timestamp_remappings,
                  rapid_pro_key_remappings, project_start_date, project_end_date, filter_test_messages, move_ws_messages,
                  memory_profile_upload_bucket, data_archive_upload_bucket, bucket_dir_path,
-                 automated_analysis, drive_upload=None):
+                 automated_analysis, drive_upload=None, beneficiary_file_urls=None):
         """
         :param pipeline_name: The name of this pipeline.
         :type pipeline_name: str
@@ -54,6 +54,11 @@ class PipelineConfiguration(object):
         :type bucket_dir_path: str
         :param automated_analysis: Different Automated analysis Script Configurations
         :type automated_analysis: AutomatedAnalysis
+        :param beneficiary_file_urls: Google cloud storage urls to fetch beneficiary file csvs from.
+        :param drive_upload: Configuration for uploading to Google Drive, or None.
+                             If None, does not upload to Google Drive.
+        :type drive_upload: DriveUploadPaths | None
+        :type beneficiary_file_urls: list of str | None
         """
         self.pipeline_name = pipeline_name
         self.raw_data_sources = raw_data_sources
@@ -64,11 +69,13 @@ class PipelineConfiguration(object):
         self.project_end_date = project_end_date
         self.filter_test_messages = filter_test_messages
         self.move_ws_messages = move_ws_messages
-        self.drive_upload = drive_upload
         self.memory_profile_upload_bucket = memory_profile_upload_bucket
         self.data_archive_upload_bucket = data_archive_upload_bucket
-        self.automated_analysis = automated_analysis
         self.bucket_dir_path = bucket_dir_path
+        self.automated_analysis = automated_analysis
+        self.drive_upload = drive_upload
+        self.beneficiary_file_urls = beneficiary_file_urls
+
 
         PipelineConfiguration.RQA_CODING_PLANS = coding_plans.get_rqa_coding_plans(self.pipeline_name)
         PipelineConfiguration.DEMOG_CODING_PLANS = coding_plans.get_demog_coding_plans(self.pipeline_name)
@@ -112,21 +119,23 @@ class PipelineConfiguration(object):
         filter_test_messages = configuration_dict["FilterTestMessages"]
         move_ws_messages = configuration_dict["MoveWSMessages"]
 
+        memory_profile_upload_bucket = configuration_dict["MemoryProfileUploadBucket"]
+        data_archive_upload_bucket = configuration_dict["DataArchiveUploadBucket"]
+        bucket_dir_path = configuration_dict["BucketDirPath"]
+
         automated_analysis = AutomatedAnalysis.from_configuration_dict(configuration_dict["AutomatedAnalysis"])
 
         drive_upload_paths = None
         if "DriveUpload" in configuration_dict:
             drive_upload_paths = DriveUpload.from_configuration_dict(configuration_dict["DriveUpload"])
 
+        beneficiary_file_urls = configuration_dict.get("BeneficiaryFileURLs")
 
-        memory_profile_upload_bucket = configuration_dict["MemoryProfileUploadBucket"]
-        data_archive_upload_bucket = configuration_dict["DataArchiveUploadBucket"]
-        bucket_dir_path = configuration_dict["BucketDirPath"]
 
         return cls(pipeline_name, raw_data_sources, phone_number_uuid_table, timestamp_remappings,
                    rapid_pro_key_remappings, project_start_date, project_end_date, filter_test_messages,
                    move_ws_messages, memory_profile_upload_bucket, data_archive_upload_bucket, bucket_dir_path,
-                   automated_analysis, drive_upload_paths)
+                   automated_analysis, drive_upload_paths, beneficiary_file_urls)
 
     @classmethod
     def from_configuration_file(cls, f):
@@ -155,15 +164,18 @@ class PipelineConfiguration(object):
         validators.validate_bool(self.filter_test_messages, "filter_test_messages")
         validators.validate_bool(self.move_ws_messages, "move_ws_messages")
 
-        if self.drive_upload is not None:
-            assert isinstance(self.drive_upload, DriveUpload), \
-                "drive_upload is not of type DriveUpload"
-            self.drive_upload.validate()
-
         validators.validate_url(self.memory_profile_upload_bucket, "memory_profile_upload_bucket", "gs")
         validators.validate_url(self.data_archive_upload_bucket, "data_archive_upload_bucket", "gs")
         validators.validate_string(self.bucket_dir_path, "bucket_dir_path")
 
+        if self.drive_upload is not None:
+            assert isinstance(self.drive_upload, DriveUpload), "drive_upload is not of type DriveUpload"
+            self.drive_upload.validate()
+
+        if self.beneficiary_file_urls is not None:
+            validators.validate_list(self.beneficiary_file_urls, "beneficiary_file_urls")
+            for i, beneficiary_file_url in enumerate(self.beneficiary_file_urls):
+                validators.validate_string(beneficiary_file_url, f"{beneficiary_file_url}")
 
 class RawDataSource(ABC):
     @abstractmethod

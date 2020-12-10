@@ -90,6 +90,62 @@
       "VisibleInCoda": true
     },
     {
+      "CodeID": "code-23197ce9",
+      "CodeType": "Normal",
+      "DisplayText": "collective WASH oriented activities",
+      "NumericValue": 8,
+      "StringValue": "collective_wash_oriented_activities",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-c518094e",
+      "CodeType": "Normal",
+      "DisplayText": "following right Covid19 prevention practise",
+      "NumericValue": 9,
+      "StringValue": "following_right_covid19_prevention_practise",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-4a1fb48a",
+      "CodeType": "Normal",
+      "DisplayText": "duty holders providing adequate clean water",
+      "NumericValue": 10,
+      "StringValue": "duty_holders_providing_adequate_clean_water",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-2e5cb89e",
+      "CodeType": "Normal",
+      "DisplayText": "right wash practices",
+      "NumericValue": 11,
+      "StringValue": "right_wash_practices",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-e00e11db",
+      "CodeType": "Normal",
+      "DisplayText": "educating people on WASH issues",
+      "NumericValue": 12,
+      "StringValue": "educating_people_on_wash_issues",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-1bb0d4c6",
+      "CodeType": "Normal",
+      "DisplayText": "clean the environment",
+      "NumericValue": 13,
+      "StringValue": "clean_the_environment",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-d30af4db",
+      "CodeType": "Normal",
+      "DisplayText": "other",
+      "NumericValue": 14,
+      "StringValue": "other",
+      "VisibleInCoda": true
+    },
+    {
       "CodeID": "code-NA-f93d3eb7",
       "CodeType": "Control",
       "ControlCode": "NA",

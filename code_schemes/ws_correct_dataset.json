@@ -81,6 +81,17 @@
       ]
     },
     {
+      "CodeID": "code-5ca601dc",
+      "CodeType": "Normal",
+      "DisplayText": "OXFAM WASH Beneficiary Consent",
+      "StringValue": "oxfam_wash_beneficiary_consent",
+      "NumericValue": 8,
+      "VisibleInCoda": true,
+      "MatchValues": [
+        "OXFAM WASH Beneficiary Consent"
+      ]
+    },
+    {
       "CodeID": "code-NC-42f1d983",
       "CodeType": "Control",
       "ControlCode": "NC",

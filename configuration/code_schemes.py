@@ -13,6 +13,7 @@ class CodeSchemes(object):
     S01E01 = _open_scheme("s01e01.json")
     S01E02 = _open_scheme("s01e02.json")
     S01E03 = _open_scheme("s01e03.json")
+    BENEFICIARY_CONSENT = _open_scheme("beneficiary_consent.json")
 
     KENYA_CONSTITUENCY = _open_scheme("kenya_constituency.json")
     KENYA_COUNTY = _open_scheme("kenya_county.json")

@@ -9,7 +9,9 @@
       "ActivationFlowNames": [
         "oxfam_wash_s01e01_activation",
         "oxfam_wash_s01e02_activation",
-        "oxfam_wash_s01e03_activation"
+        "oxfam_wash_s01e03_activation",
+        "oxfam_wash_s01e01_beneficiaries_sms_ad",
+        "Oxfam_wash_s01e02_beneficiaries_sms_ad"
       ],
       "SurveyFlowNames": [
         "oxfam_wash_s01_demog"
@@ -38,6 +40,14 @@
     {"RapidProKey": "Rqa_S01E03 (Text) - oxfam_wash_s01e03_activation", "PipelineKey": "rqa_s01e03_raw", "IsActivationMessage": true},
     {"RapidProKey": "Rqa_S01E03 (Run ID) - oxfam_wash_s01e03_activation", "PipelineKey": "rqa_s01e03_run_id"},
     {"RapidProKey": "Rqa_S01E03 (Time) - oxfam_wash_s01e03_activation", "PipelineKey": "sent_on"},
+
+    {"RapidProKey": "Oxfam_Beneficiary_Consent (Text) - oxfam_wash_s01e01_sms_ad", "PipelineKey": "oxfam_beneficiary_consent_raw", "IsActivationMessage": true},
+    {"RapidProKey": "Oxfam_Beneficiary_Consent (Run ID) - oxfam_wash_s01e01_sms_ad", "PipelineKey": "oxfam_beneficiary_consent_run_id"},
+    {"RapidProKey": "Oxfam_Beneficiary_Consent (Time) - oxfam_wash_s01e01_sms_ad", "PipelineKey": "sent_on"},
+
+    {"RapidProKey": "Oxfam_Beneficiary_Consent (Text) - Oxfam_wash_s01e02_beneficiaries_sms_ad", "PipelineKey": "oxfam_beneficiary_consent_raw", "IsActivationMessage": true},
+    {"RapidProKey": "Oxfam_Beneficiary_Consent (Run ID) - Oxfam_wash_s01e02_beneficiaries_sms_ad", "PipelineKey": "oxfam_beneficiary_consent_run_id"},
+    {"RapidProKey": "Oxfam_Beneficiary_Consent (Time) - Oxfam_wash_s01e02_beneficiaries_sms_ad", "PipelineKey": "sent_on"},
 
     {"RapidProKey": "Constituency (Text) - oxfam_wash_s01_demog", "PipelineKey": "location_raw"},
     {"RapidProKey": "Constituency (Time) - oxfam_wash_s01_demog", "PipelineKey": "location_time"},

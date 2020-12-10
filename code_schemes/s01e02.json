@@ -100,9 +100,9 @@
     {
       "CodeID": "code-c518094e",
       "CodeType": "Normal",
-      "DisplayText": "following right Covid19 prevention practise",
+      "DisplayText": "following right covid19 prevention practice",
       "NumericValue": 9,
-      "StringValue": "following_right_covid19_prevention_practise",
+      "StringValue": "following_right_covid19_prevention_practice",
       "VisibleInCoda": true
     },
     {
@@ -140,9 +140,9 @@
     {
       "CodeID": "code-d30af4db",
       "CodeType": "Normal",
-      "DisplayText": "other",
+      "DisplayText": "other theme",
       "NumericValue": 14,
-      "StringValue": "other",
+      "StringValue": "other_theme",
       "VisibleInCoda": true
     },
     {

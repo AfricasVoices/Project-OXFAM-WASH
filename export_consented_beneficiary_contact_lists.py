@@ -65,11 +65,9 @@ if __name__ == "__main__":
             if td["consent_withdrawn"] == Codes.TRUE:
                 continue
 
-            if 'oxfam_beneficiary_consent_coded' in td:
-                print(td['oxfam_beneficiary_consent_coded'])
-                exit()
-
-            uuids.add(td["uid"])
+            if 'oxfam_beneficiary_consent_coded' in td and td['oxfam_beneficiary_consent_coded']['CodeID'] ==\
+                    "code-OI-c5f1d054":
+                    uuids.add(td["uid"])
 
     log.info(f"Loaded {len(uuids)} uuids from TracedData consented beneficiaries")
 

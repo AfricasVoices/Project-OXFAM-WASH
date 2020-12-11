@@ -65,14 +65,13 @@ if __name__ == "__main__":
             if td["consent_withdrawn"] == Codes.TRUE:
                 continue
 
-            if td['oxfam_beneficiary_consent_raw'] == 'NA':
-                continue
-
             if td['rqa_s01e02_raw'] != 'NA':
                 continue
 
             if td['oxfam_beneficiary_consent_coded'] == 'opt_in':
-                uuids.add(td["uid"])
+                continue
+
+            uuids.add(td["uid"])
 
     log.info(f"Loaded {len(uuids)} uuids from TracedData consented beneficiaries")
 

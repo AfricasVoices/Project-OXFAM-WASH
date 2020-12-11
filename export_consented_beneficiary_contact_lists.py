@@ -65,9 +65,6 @@ if __name__ == "__main__":
             if td["consent_withdrawn"] == Codes.TRUE:
                 continue
 
-            if td['rqa_s01e02_raw'] != 'NA':
-                continue
-
             if td['oxfam_beneficiary_consent_coded'] == 'opt_in':
                 continue
 

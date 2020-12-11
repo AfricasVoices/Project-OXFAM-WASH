@@ -65,7 +65,7 @@ if __name__ == "__main__":
             if td["consent_withdrawn"] == Codes.TRUE:
                 continue
 
-            if 'oxfam_beneficiary_consent_coded' in td and td[0]['oxfam_beneficiary_consent_coded']['CodeID'] ==\
+            if 'oxfam_beneficiary_consent_coded' in td and td['oxfam_beneficiary_consent_coded'][0]['CodeID'] ==\
                     "code-OI-c5f1d054":
                     uuids.add(td["uid"])
 

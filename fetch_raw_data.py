@@ -160,7 +160,11 @@ def fetch_beneficiary_file_csvs(google_cloud_credentials_file_path, pipeline_con
     for beneficiary_file_url in pipeline_configuration.beneficiary_file_urls:
         beneficiary_file = beneficiary_file_url.split("/")[-1]
 
-        log.info(f"Saving '{beneficiary_file}' to file '{raw_data_dir}'...")
+        if os.path.exists(f'{raw_data_dir}/{beneficiary_file}'):
+            log.info(f"File '{beneficiary_file}'already exists; skipping download")
+            continue
+
+        log.info(f"Saving '{beneficiary_file}' to directory '{raw_data_dir}/{beneficiary_file}'...")
         with open(f'{raw_data_dir}/{beneficiary_file}', "wb") as beneficiary_output_file:
             google_cloud_utils.download_blob_to_file(
                 google_cloud_credentials_file_path, beneficiary_file_url, beneficiary_output_file)
@@ -203,7 +207,7 @@ def main(user, google_cloud_credentials_file_path, pipeline_configuration_file_p
             assert False, f"Unknown raw_data_source type {type(raw_data_source)}"
 
     # Fetch de-identified listening group CSVs
-    log.info(f"Fetching beneficiary files")
+    log.info(f"Fetching beneficiary files...")
     fetch_beneficiary_file_csvs(google_cloud_credentials_file_path, pipeline_configuration, raw_data_dir)
 
 

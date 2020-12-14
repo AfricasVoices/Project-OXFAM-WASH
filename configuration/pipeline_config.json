@@ -28,7 +28,7 @@
     "gs://avf-project-datasets/2020/OXFAM-WASH/oxfam_wash_kisumu_beneficiaries_deindentified.csv",
     "gs://avf-project-datasets/2020/OXFAM-WASH/oxfam_wash_mombasa_beneficiaries_deindentified.csv",
     "gs://avf-project-datasets/2020/OXFAM-WASH/oxfam_wash_nairobi_beneficiaries_deidentified.csv"
-    ],
+  ],
   "RapidProKeyRemappings": [
     {"RapidProKey": "avf_phone_id", "PipelineKey": "uid"},
     

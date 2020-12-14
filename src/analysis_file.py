@@ -26,7 +26,7 @@ class AnalysisFile(object):
         :param pipeline_configuration: Pipeline configuration.
         :type pipeline_configuration: PipelineConfiguration
         """
-        beneficiary_uids = set()  # Contains avf-phone ids of partner beneficiaries.
+        beneficiary_uids = set()  # Contains avf-phone ids of partner's beneficiaries.
 
         # Read beneficiary file CSVs data
         for beneficiary_file_url in pipeline_configuration.beneficiary_file_urls:

@@ -90,6 +90,54 @@
       "VisibleInCoda": true
     },
     {
+      "CodeID": "code-d30af4db",
+      "CodeType": "Normal",
+      "DisplayText": "entrepreneurship",
+      "NumericValue": 8,
+      "StringValue": "entrepreneurship",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-d30af4db",
+      "CodeType": "Normal",
+      "DisplayText": "support from government",
+      "NumericValue": 9,
+      "StringValue": "support_from_government",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-d30af4db",
+      "CodeType": "Normal",
+      "DisplayText": "taking loans",
+      "NumericValue": 10,
+      "StringValue": "taking_loans",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-d30af4db",
+      "CodeType": "Normal",
+      "DisplayText": "informal labour",
+      "NumericValue": 11,
+      "StringValue": "informal_labour",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-d30af4db",
+      "CodeType": "Normal",
+      "DisplayText": "seeking support",
+      "NumericValue": 12,
+      "StringValue": "seeking_support",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-d30af4db",
+      "CodeType": "Normal",
+      "DisplayText": "other theme",
+      "NumericValue": 13,
+      "StringValue": "other_theme",
+      "VisibleInCoda": true
+    },
+    {
       "CodeID": "code-NA-f93d3eb7",
       "CodeType": "Control",
       "ControlCode": "NA",

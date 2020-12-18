@@ -20,7 +20,6 @@ def clean_age_with_range_filter(text):
     else:
         return Codes.NOT_CODED
 
-
 def get_rqa_coding_plans(pipeline_name):
     return [
         CodingPlan(raw_field="rqa_s01e01_raw",
@@ -84,6 +83,7 @@ def get_rqa_coding_plans(pipeline_name):
                            coding_mode=CodingModes.MULTIPLE,
                            code_scheme=CodeSchemes.BENEFICIARY_CONSENT,
                            coded_field="oxfam_beneficiary_consent_coded",
+                           analysis_file_key="oxfam_beneficiary_consent",
                            fold_strategy=lambda x, y: FoldStrategies.list_of_labels(CodeSchemes.BENEFICIARY_CONSENT, x, y)
                        )
                    ],

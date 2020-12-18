@@ -44,6 +44,7 @@ class AnalysisUtils(object):
         :rtype: bool
         """
         for cc in coding_plan.coding_configurations:
+            
             codes = cls._get_td_codes_for_coding_configuration(td, cc)
             assert len(codes) >= 1
             if len(codes) > 1:

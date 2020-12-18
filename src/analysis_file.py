@@ -38,7 +38,7 @@ class AnalysisFile(object):
         # 1.Check if a participant is part of the beneficiary contacts then tag true or false otherwise
         #   Example - "beneficiary": true
         for td in data:
-            beneficiary_data = dict()  # of uid repeat and weekly listening group participation data
+            beneficiary_data = dict()
             beneficiary_data["beneficiary"] = td["uid"] in beneficiary_uids
 
             td.append_data(beneficiary_data, Metadata(user, Metadata.get_call_location(), time.time()))
@@ -123,7 +123,8 @@ class AnalysisFile(object):
                     for code in cc.code_scheme.codes:
                         export_keys.append(f"{cc.analysis_file_key}_{code.string_value}")
 
-                fold_strategies[cc.coded_field] = cc.fold_strategy
+                if cc.include_in_analysis_files:
+                    fold_strategies[cc.coded_field] = cc.fold_strategy
 
             export_keys.append(plan.raw_field)
             fold_strategies[plan.raw_field] = plan.raw_field_fold_strategy
@@ -142,6 +143,7 @@ class AnalysisFile(object):
 
         # Tag listening group participants
         cls.tag_beneficiary_participants(user, data, pipeline_configuration, raw_data_dir)
+        cls.tag_beneficiary_participants(user, folded_data, pipeline_configuration, raw_data_dir)
 
         cls.export_to_csv(user, data, csv_by_message_output_path, export_keys, consent_withdrawn_key)
         cls.export_to_csv(user, folded_data, csv_by_individual_output_path, export_keys, consent_withdrawn_key)

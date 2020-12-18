@@ -123,7 +123,6 @@ class AnalysisFile(object):
                     for code in cc.code_scheme.codes:
                         export_keys.append(f"{cc.analysis_file_key}_{code.string_value}")
 
-                if cc.include_in_analysis_files:
                     fold_strategies[cc.coded_field] = cc.fold_strategy
 
             export_keys.append(plan.raw_field)

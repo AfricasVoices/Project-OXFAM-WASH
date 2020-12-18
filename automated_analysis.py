@@ -89,7 +89,8 @@ if __name__ == "__main__":
 
             "Total Participants": "-",
             "Total Participants with Opt-Ins": len(AnalysisUtils.filter_opt_ins(individuals, CONSENT_WITHDRAWN_KEY, [plan])),
-            "Total Relevant Participants": len(AnalysisUtils.filter_relevant(individuals, CONSENT_WITHDRAWN_KEY, [plan]))
+            "Total Relevant Participants": len(AnalysisUtils.filter_relevant(individuals, CONSENT_WITHDRAWN_KEY, [plan])),
+            "Total_Beneficiary_Participants": 0
         }
     engagement_counts["Total"] = {
         "Episode": "Total",
@@ -101,14 +102,24 @@ if __name__ == "__main__":
 
         "Total Participants": len(individuals),
         "Total Participants with Opt-Ins": len(AnalysisUtils.filter_opt_ins(individuals, CONSENT_WITHDRAWN_KEY, PipelineConfiguration.RQA_CODING_PLANS)),
-        "Total Relevant Participants": len(AnalysisUtils.filter_relevant(individuals, CONSENT_WITHDRAWN_KEY, PipelineConfiguration.RQA_CODING_PLANS))
+        "Total Relevant Participants": len(AnalysisUtils.filter_relevant(individuals, CONSENT_WITHDRAWN_KEY, PipelineConfiguration.RQA_CODING_PLANS)),
+        "Total_Beneficiary_Participants": "-"
     }
+
+    for plan in PipelineConfiguration.RQA_CODING_PLANS:
+        for ind in individuals:
+            if ind["consent_withdrawn"] == Codes.TRUE:
+                continue
+
+            if plan.raw_field in ind and ind["beneficiary"]:
+                    engagement_counts[plan.dataset_name]["Total_Beneficiary_Participants"] += 1
 
     with open(f"{automated_analysis_output_dir}/engagement_counts.csv", "w") as f:
         headers = [
             "Episode",
             "Total Messages", "Total Messages with Opt-Ins", "Total Labelled Messages", "Total Relevant Messages",
-            "Total Participants", "Total Participants with Opt-Ins", "Total Relevant Participants"
+            "Total Participants", "Total Participants with Opt-Ins", "Total Relevant Participants",
+            "Total_Beneficiary_Participants"
         ]
         writer = csv.DictWriter(f, fieldnames=headers, lineterminator="\n")
         writer.writeheader()

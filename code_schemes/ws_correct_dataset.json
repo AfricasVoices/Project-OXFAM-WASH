@@ -92,6 +92,17 @@
       ]
     },
     {
+      "CodeID": "code-314f1554",
+      "CodeType": "Normal",
+      "DisplayText": "OXFAM WASH s01e03 noise handler",
+      "StringValue": "oxfam_wash_s01e03_noise_handler",
+      "NumericValue": 9,
+      "VisibleInCoda": true,
+      "MatchValues": [
+        "OXFAM WASH s01e03 Noise Handler"
+      ]
+    },
+    {
       "CodeID": "code-NC-42f1d983",
       "CodeType": "Control",
       "ControlCode": "NC",

@@ -193,9 +193,7 @@ def get_demog_coding_plans(pipeline_name):
 
         CodingPlan(raw_field="rqa_s01_programme_evaluation_raw",
                    time_field="sent_on",
-                   run_id_field="rqa_s01_programme_evaluation_run_id",
                    coda_filename="OXFAM_WASH_s01_Programme_Evaluation.json",
-                   icr_filename="oxfam_wash_s01_programme_evaluation.csv",
                    coding_configurations=[
                        CodingConfiguration(
                            coding_mode=CodingModes.MULTIPLE,

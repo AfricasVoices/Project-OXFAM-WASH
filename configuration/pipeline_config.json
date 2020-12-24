@@ -60,8 +60,7 @@
     {"RapidProKey": "Rqa_S01E03_Noise_Handler (Run ID) - oxfam_wash_s01e03_noise_handler", "PipelineKey": "rqa_s01e03_noise_handler_run_id"},
     {"RapidProKey": "Rqa_S01E03_Noise_Handler (Time) - oxfam_wash_s01e03_noise_handler", "PipelineKey": "sent_on"},
 
-    {"RapidProKey": "Rqa_S01_Programme_Evaluation (Text) - oxfam_wash_s01_programme_evaluation", "PipelineKey": "rqa_s01_programme_evaluation_raw", "IsActivationMessage": true},
-    {"RapidProKey": "Rqa_S01_Programme_Evaluation (Run ID) - oxfam_wash_s01_programme_evaluation", "PipelineKey": "rqa_s01_programme_evaluation_run_id"},
+    {"RapidProKey": "Rqa_S01_Programme_Evaluation (Text) - oxfam_wash_s01_programme_evaluation", "PipelineKey": "rqa_s01_programme_evaluation_raw"},
     {"RapidProKey": "Rqa_S01_Programme_Evaluation (Time) - oxfam_wash_s01_programme_evaluation", "PipelineKey": "sent_on"},
 
     {"RapidProKey": "Constituency (Text) - oxfam_wash_s01_demog", "PipelineKey": "location_raw"},

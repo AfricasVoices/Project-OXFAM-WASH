@@ -15,7 +15,8 @@
         "oxfam_wash_s01e03_noise_handler"
       ],
       "SurveyFlowNames": [
-        "oxfam_wash_s01_demog"
+        "oxfam_wash_s01_demog",
+        "oxfam_wash_s01_programme_evaluation"
       ],
       "TestContactUUIDs": [
         "94075043-57c6-43c7-8b89-880478ccad8e",

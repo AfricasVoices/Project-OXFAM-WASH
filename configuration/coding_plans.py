@@ -93,7 +93,7 @@ def get_rqa_coding_plans(pipeline_name):
 
         CodingPlan(raw_field="rqa_s01e03_noise_handler_raw",
                    time_field="sent_on",
-                   run_id_field="rqa_s01e03_noise_handler_raw_run_id",
+                   run_id_field="rqa_s01e03_noise_handler_run_id",
                    coda_filename="OXFAM_WASH_s01e03_Noise_Handler.json",
                    icr_filename="oxfam_wash_s01e03_noise_handler.csv",
                    coding_configurations=[
@@ -106,9 +106,9 @@ def get_rqa_coding_plans(pipeline_name):
                        )
                    ],
                    ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("OXFAM WASH s01e03 Noise Handler"),
-                   raw_field_fold_strategy=FoldStrategies.concatenate)
-    ]
+                   raw_field_fold_strategy=FoldStrategies.concatenate),
 
+    ]
 
 def get_demog_coding_plans(pipeline_name):
     return [
@@ -189,7 +189,27 @@ def get_demog_coding_plans(pipeline_name):
                        )
                    ],
                    ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("disabled"),
-                   raw_field_fold_strategy=FoldStrategies.assert_equal)
+                   raw_field_fold_strategy=FoldStrategies.assert_equal),
+
+        CodingPlan(raw_field="rqa_s01_programme_evaluation_raw",
+                   time_field="sent_on",
+                   run_id_field="rqa_s01_programme_evaluation_run_id",
+                   coda_filename="OXFAM_WASH_s01_Programme_Evaluation.json",
+                   icr_filename="oxfam_wash_s01_programme_evaluation.csv",
+                   coding_configurations=[
+                       CodingConfiguration(
+                           coding_mode=CodingModes.MULTIPLE,
+                           code_scheme=CodeSchemes.S01_PROGRAMME_EVALUATION,
+                           coded_field="rqa_s01_programme_evaluation_coded",
+                           analysis_file_key="rqa_s01_programme_evaluation",
+                           fold_strategy=lambda x, y: FoldStrategies.list_of_labels(
+                               CodeSchemes.S01_PROGRAMME_EVALUATION, x,
+                               y)
+                       )
+                   ],
+                   ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value(
+                       "OXFAM WASH s01 Programme Evaluation"),
+                   raw_field_fold_strategy=FoldStrategies.concatenate)
     ]
 
 

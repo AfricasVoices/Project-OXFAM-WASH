@@ -188,9 +188,12 @@ def get_demog_coding_plans(pipeline_name):
                            fold_strategy=FoldStrategies.assert_label_ids_equal
                        )
                    ],
-                   ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("disabled"),
-                   raw_field_fold_strategy=FoldStrategies.assert_equal),
+                ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("disabled"),
+                   raw_field_fold_strategy=FoldStrategies.assert_equal)
+    ]
 
+def get_follow_up_coding_plans(pipeline_name):
+    return [
         CodingPlan(raw_field="rqa_s01_programme_evaluation_raw",
                    time_field="sent_on",
                    coda_filename="OXFAM_WASH_s01_Programme_Evaluation.json",
@@ -209,10 +212,6 @@ def get_demog_coding_plans(pipeline_name):
                        "OXFAM WASH s01 Programme Evaluation"),
                    raw_field_fold_strategy=FoldStrategies.concatenate)
     ]
-
-
-def get_follow_up_coding_plans(pipeline_name):
-    return []
 
 
 def get_ws_correct_dataset_scheme(pipeline_name):

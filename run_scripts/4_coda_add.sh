@@ -25,6 +25,7 @@ DATASETS=(
     "OXFAM_WASH_location"
     "OXFAM_WASH_disabled"
     "OXFAM_WASH_Beneficiary_Consent"
+    "OXFAM_WASH_s01_Programme_Evaluation"
 )
 
 cd "$CODA_V2_ROOT/data_tools"

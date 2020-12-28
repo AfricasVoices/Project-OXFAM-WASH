@@ -15,7 +15,8 @@
         "oxfam_wash_s01e03_noise_handler"
       ],
       "SurveyFlowNames": [
-        "oxfam_wash_s01_demog"
+        "oxfam_wash_s01_demog",
+        "oxfam_wash_s01_programme_evaluation"
       ],
       "TestContactUUIDs": [
         "94075043-57c6-43c7-8b89-880478ccad8e",
@@ -58,6 +59,9 @@
     {"RapidProKey": "Rqa_S01E03_Noise_Handler (Text) - oxfam_wash_s01e03_noise_handler", "PipelineKey": "rqa_s01e03_noise_handler_raw", "IsActivationMessage": true},
     {"RapidProKey": "Rqa_S01E03_Noise_Handler (Run ID) - oxfam_wash_s01e03_noise_handler", "PipelineKey": "rqa_s01e03_noise_handler_run_id"},
     {"RapidProKey": "Rqa_S01E03_Noise_Handler (Time) - oxfam_wash_s01e03_noise_handler", "PipelineKey": "sent_on"},
+
+    {"RapidProKey": "Rqa_S01_Programme_Evaluation (Text) - oxfam_wash_s01_programme_evaluation", "PipelineKey": "rqa_s01_programme_evaluation_raw"},
+    {"RapidProKey": "Rqa_S01_Programme_Evaluation (Time) - oxfam_wash_s01_programme_evaluation", "PipelineKey": "sent_on"},
 
     {"RapidProKey": "Constituency (Text) - oxfam_wash_s01_demog", "PipelineKey": "location_raw"},
     {"RapidProKey": "Constituency (Time) - oxfam_wash_s01_demog", "PipelineKey": "location_time"},

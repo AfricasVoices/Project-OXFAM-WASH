@@ -89,6 +89,23 @@ def get_rqa_coding_plans(pipeline_name):
                        )
                    ],
                    ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("OXFAM WASH Beneficiary Consent"),
+                   raw_field_fold_strategy=FoldStrategies.concatenate),
+
+        CodingPlan(raw_field="rqa_s01e03_noise_handler_raw",
+                   time_field="sent_on",
+                   run_id_field="rqa_s01e03_noise_handler_raw_run_id",
+                   coda_filename="OXFAM_WASH_s01e03_Noise_Handler.json",
+                   icr_filename="oxfam_wash_s01e03_noise_handler.csv",
+                   coding_configurations=[
+                       CodingConfiguration(
+                           coding_mode=CodingModes.MULTIPLE,
+                           code_scheme=CodeSchemes.S01E03_NOISE_HANDLER,
+                           coded_field="rqa_s01e03_noise_handler_coded",
+                           analysis_file_key="rqa_s01e03_s01e03_noise_handler",
+                           fold_strategy=lambda x, y: FoldStrategies.list_of_labels(CodeSchemes.S01E03_NOISE_HANDLER, x, y)
+                       )
+                   ],
+                   ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("OXFAM WASH s01e03 Noise Handler"),
                    raw_field_fold_strategy=FoldStrategies.concatenate)
     ]
 

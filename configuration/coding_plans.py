@@ -210,6 +210,24 @@ def get_follow_up_coding_plans(pipeline_name):
                    ],
                    ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value(
                        "OXFAM WASH s01 Programme Evaluation"),
+                   raw_field_fold_strategy=FoldStrategies.concatenate),
+
+        CodingPlan(raw_field="rqa_s01_accountability_raw",
+                   time_field="sent_on",
+                   coda_filename="OXFAM_WASH_s01_Accountability.json",
+                   coding_configurations=[
+                       CodingConfiguration(
+                           coding_mode=CodingModes.MULTIPLE,
+                           code_scheme=CodeSchemes.S01_ACCOUNTABILITY,
+                           coded_field="rqa_s01_accountability_coded",
+                           analysis_file_key="rqa_s01_accountability",
+                           fold_strategy=lambda x, y: FoldStrategies.list_of_labels(
+                               CodeSchemes.S01_ACCOUNTABILITY, x,
+                               y)
+                       )
+                   ],
+                   ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value(
+                       "OXFAM WASH s01 Accountability"),
                    raw_field_fold_strategy=FoldStrategies.concatenate)
     ]
 

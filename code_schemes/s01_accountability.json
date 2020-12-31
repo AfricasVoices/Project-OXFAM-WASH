@@ -90,6 +90,54 @@
       "VisibleInCoda": true
     },
     {
+      "CodeID": "code-6fb4eedc",
+      "CodeType": "Normal",
+      "DisplayText": "yes, no reason",
+      "NumericValue": 8,
+      "StringValue": "yes_no_reason",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-3947a06d",
+      "CodeType": "Normal",
+      "DisplayText": "yes, satisfied",
+      "NumericValue": 9,
+      "StringValue": "yes_satisfied",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-3e5d3637",
+      "CodeType": "Normal",
+      "DisplayText": "no, other needs",
+      "NumericValue": 10,
+      "StringValue": "no_other_needs",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-62f6430b",
+      "CodeType": "Normal",
+      "DisplayText": "no, no services",
+      "NumericValue": 11,
+      "StringValue": "no_no_services",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-409dc0ba",
+      "CodeType": "Normal",
+      "DisplayText": "no, no reason",
+      "NumericValue": 12,
+      "StringValue": "no_no_reason",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-1fe49371",
+      "CodeType": "Normal",
+      "DisplayText": "other theme",
+      "NumericValue": 13,
+      "StringValue": "other_theme",
+      "VisibleInCoda": true
+    },
+    {
       "CodeID": "code-NA-f93d3eb7",
       "CodeType": "Control",
       "ControlCode": "NA",

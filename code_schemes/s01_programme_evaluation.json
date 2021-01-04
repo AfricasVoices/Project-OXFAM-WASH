@@ -99,6 +99,62 @@
       "VisibleInCoda": true
     },
     {
+      "CodeID": "code-a8d0e838",
+      "CodeType": "Normal",
+      "DisplayText": "yes, no reason",
+      "NumericValue": 8,
+      "StringValue": "yes_no_reason",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-b731d311",
+      "CodeType": "Normal",
+      "DisplayText": "yes, educated",
+      "NumericValue": 9,
+      "StringValue": "yes_educated",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-13fc4dc8",
+      "CodeType": "Normal",
+      "DisplayText": "yes, it was useful",
+      "NumericValue": 10,
+      "StringValue": "yes_it_was_useful",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-cf27f945",
+      "CodeType": "Normal",
+      "DisplayText": "no, no reason",
+      "NumericValue": 11,
+      "StringValue": "no_no_reason",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-0365b8d7",
+      "CodeType": "Normal",
+      "DisplayText": "no, not useful",
+      "NumericValue": 12,
+      "StringValue": "no_not_useful",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-52cadd7d",
+      "CodeType": "Normal",
+      "DisplayText": "no, did not listen to the discussion",
+      "NumericValue": 14,
+      "StringValue": "no_did_not_listen_to_the_discussion",
+      "VisibleInCoda": true
+    },
+    {
+      "CodeID": "code-42fc8863",
+      "CodeType": "Normal",
+      "DisplayText": "other theme",
+      "NumericValue": 13,
+      "StringValue": "other_theme",
+      "VisibleInCoda": true
+    },
+    {
       "CodeID": "code-NA-f93d3eb7",
       "CodeType": "Control",
       "ControlCode": "NA",

@@ -67,6 +67,37 @@ if __name__ == "__main__":
             messages[i] = dict(messages[i].items())
     log.info(f"Loaded {len(messages)} messages")
 
+    # Export raw messages labelled with Meta accountability and safeguarding labels
+    log.info("Exporting accountability and safeguarding raw messages for each episode...")
+    accountability_messages = []  # of dict of code_string_value to avf-uid and raw messages
+    success_story_string_values = ["accountability", "safeguarding"]
+    for plan in PipelineConfiguration.RQA_CODING_PLANS:
+        for cc in plan.coding_configurations:
+            for msg in messages:
+                if not AnalysisUtils.labelled(msg, CONSENT_WITHDRAWN_KEY, plan):
+                    continue
+
+                for label in msg[cc.coded_field]:
+                    code = cc.code_scheme.get_code_with_code_id(label["CodeID"])
+
+                    if code.string_value in success_story_string_values:
+                        accountability_messages.append({
+                            "Dataset": plan.dataset_name,
+                            "UID": msg['uid'],
+                            "Code": code.string_value,
+                            "Raw Message": msg[plan.raw_field],
+                            "Gender": msg.get("gender_coded")
+                        })
+
+    with open(f"{automated_analysis_output_dir}/accountability_messages.csv", "w") as f:
+        headers = ["Dataset", "UID", "Code", "Raw Message"]
+        writer = csv.DictWriter(f, fieldnames=headers, lineterminator="\n")
+        writer.writeheader()
+
+        for msg in accountability_messages:
+            writer.writerow(msg)
+
+    exit()
     # Read the individuals dataset
     log.info(f"Loading the individuals dataset from {individuals_json_input_path}...")
     with open(individuals_json_input_path) as f:

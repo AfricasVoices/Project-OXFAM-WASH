@@ -70,7 +70,7 @@ if __name__ == "__main__":
     # Export raw messages labelled with Meta accountability and safeguarding labels
     log.info("Exporting accountability and safeguarding raw messages for each episode...")
     accountability_messages = []  # of dict of code_string_value to avf-uid and raw messages
-    success_story_string_values = ["accountability", "safeguarding"]
+    accountability_string_values = ["accountability", "safeguarding"]
     for plan in PipelineConfiguration.RQA_CODING_PLANS:
         for cc in plan.coding_configurations:
             for msg in messages:
@@ -78,19 +78,30 @@ if __name__ == "__main__":
                     continue
 
                 for label in msg[cc.coded_field]:
+                    print(label)
                     code = cc.code_scheme.get_code_with_code_id(label["CodeID"])
 
-                    if code.string_value in success_story_string_values:
+                    if code.string_value in accountability_string_values:
+
+                        constituency_label = msg.get("constituency_coded")
+
+                        for plan in PipelineConfiguration.DEMOG_CODING_PLANS:
+                            if plan.raw_field != "location_raw":
+                                continue
+
+                            for cc in plan.coding_configurations:
+                                constituency_string_value = cc.code_scheme.get_code_with_code_id(constituency_label["CodeID"])
+
                         accountability_messages.append({
                             "Dataset": plan.dataset_name,
                             "UID": msg['uid'],
                             "Code": code.string_value,
                             "Raw Message": msg[plan.raw_field],
-                            "Gender": msg.get("gender_coded")
+                            "Constituency": constituency_string_value
                         })
 
     with open(f"{automated_analysis_output_dir}/accountability_messages.csv", "w") as f:
-        headers = ["Dataset", "UID", "Code", "Raw Message"]
+        headers = ["Dataset", "UID", "Code", "Raw Message", "Gender"]
         writer = csv.DictWriter(f, fieldnames=headers, lineterminator="\n")
         writer.writeheader()
 

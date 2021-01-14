@@ -16,6 +16,7 @@ class CodeSchemes(object):
     BENEFICIARY_CONSENT = _open_scheme("beneficiary_consent.json")
     S01E03_NOISE_HANDLER = _open_scheme("s01e03_noise_handler.json")
     S01_PROGRAMME_EVALUATION = _open_scheme("s01_programme_evaluation.json")
+    S01_ACCOUNTABILITY = _open_scheme("s01_accountability.json")
 
     KENYA_CONSTITUENCY = _open_scheme("kenya_constituency.json")
     KENYA_COUNTY = _open_scheme("kenya_county.json")

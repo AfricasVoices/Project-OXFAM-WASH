@@ -142,6 +142,7 @@ class AnalysisFile(object):
 
         # Tag listening group participants
         cls.tag_beneficiary_participants(user, data, pipeline_configuration, raw_data_dir)
+        cls.tag_beneficiary_participants(user, folded_data, pipeline_configuration, raw_data_dir)
 
         cls.export_to_csv(user, data, csv_by_message_output_path, export_keys, consent_withdrawn_key)
         cls.export_to_csv(user, folded_data, csv_by_individual_output_path, export_keys, consent_withdrawn_key)

@@ -197,6 +197,7 @@ def get_follow_up_coding_plans(pipeline_name):
         CodingPlan(raw_field="rqa_s01_programme_evaluation_raw",
                    time_field="sent_on",
                    coda_filename="OXFAM_WASH_s01_Programme_Evaluation.json",
+                   icr_filename="oxfam_programme_evaluation.csv",
                    coding_configurations=[
                        CodingConfiguration(
                            coding_mode=CodingModes.MULTIPLE,
@@ -215,6 +216,8 @@ def get_follow_up_coding_plans(pipeline_name):
         CodingPlan(raw_field="rqa_s01_accountability_raw",
                    time_field="sent_on",
                    coda_filename="OXFAM_WASH_s01_Accountability.json",
+                   run_id_field="rqa_s01_accountability_run_id",
+                   icr_filename="oxfam_accountability.csv",
                    coding_configurations=[
                        CodingConfiguration(
                            coding_mode=CodingModes.MULTIPLE,
@@ -228,7 +231,7 @@ def get_follow_up_coding_plans(pipeline_name):
                    ],
                    ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value(
                        "OXFAM WASH s01 Accountability"),
-                   raw_field_fold_strategy=FoldStrategies.concatenate)
+                   raw_field_fold_strategy=FoldStrategies.concatenate),
     ]
 
 

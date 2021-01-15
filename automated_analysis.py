@@ -67,10 +67,13 @@ if __name__ == "__main__":
             messages[i] = dict(messages[i].items())
     log.info(f"Loaded {len(messages)} messages")
 
-    # Export raw messages labelled with Meta accountability and safeguarding labels
-    log.info("Exporting accountability and safeguarding raw messages for each episode...")
+    # Export raw messages labelled with Meta impact, gratitude and about conversation programmatically known as impact/success story
+    log.info("Exporting success story raw messages for each episode...")
     accountability_messages = []  # of dict of code_string_value to avf-uid and raw messages
-    accountability_string_values = ["accountability", "safeguarding"]
+    accountability_code_ids = ["code-SG-e1f8b4bd", "code-A-a542fb02", "code-6fb4eedc", "code-3947a06d",
+                               "code-3e5d3637", "code-62f6430b",
+                              "code-409dc0ba", "code-1fe49371"]
+
     for plan in PipelineConfiguration.RQA_CODING_PLANS:
         for cc in plan.coding_configurations:
             for msg in messages:
@@ -78,30 +81,28 @@ if __name__ == "__main__":
                     continue
 
                 for label in msg[cc.coded_field]:
-                    print(label)
                     code = cc.code_scheme.get_code_with_code_id(label["CodeID"])
 
-                    if code.string_value in accountability_string_values:
+                    constituency_string_value = []
+                    if code.code_id in accountability_code_ids:
+                        for demog_plan in PipelineConfiguration.DEMOG_CODING_PLANS:
+                            for demog_cc in demog_plan.coding_configurations:
+                                if demog_cc.coded_field != "constituency_coded":
+                                    continue
 
-                        constituency_label = msg.get("constituency_coded")
-
-                        for plan in PipelineConfiguration.DEMOG_CODING_PLANS:
-                            if plan.raw_field != "location_raw":
-                                continue
-
-                            for cc in plan.coding_configurations:
-                                constituency_string_value = cc.code_scheme.get_code_with_code_id(constituency_label["CodeID"])
+                                demog_code_id = msg.get(f"{demog_cc.coded_field}")['CodeID']
+                                constituency_string_value.append(demog_cc.code_scheme.get_code_with_code_id(demog_code_id).string_value)
 
                         accountability_messages.append({
                             "Dataset": plan.dataset_name,
                             "UID": msg['uid'],
                             "Code": code.string_value,
                             "Raw Message": msg[plan.raw_field],
-                            "Constituency": constituency_string_value
+                            "Constituency": constituency_string_value[0]
                         })
 
     with open(f"{automated_analysis_output_dir}/accountability_messages.csv", "w") as f:
-        headers = ["Dataset", "UID", "Code", "Raw Message", "Gender"]
+        headers = ["Dataset", "UID", "Code", "Raw Message", "Constituency"]
         writer = csv.DictWriter(f, fieldnames=headers, lineterminator="\n")
         writer.writeheader()
 

@@ -274,7 +274,7 @@ if __name__ == "__main__":
         survey_counts = OrderedDict()
         survey_counts["Total Participants"] = 0
         survey_counts["Total Participants %"] = None
-        for plan in PipelineConfiguration.SURVEY_CODING_PLANS:
+        for plan in PipelineConfiguration.DEMOG_CODING_PLANS:
             for cc in plan.coding_configurations:
                 if cc.include_in_theme_distribution == Codes.FALSE:
                     continue
@@ -288,7 +288,7 @@ if __name__ == "__main__":
         return survey_counts
 
     def update_survey_counts(survey_counts, td):
-        for plan in PipelineConfiguration.SURVEY_CODING_PLANS:
+        for plan in PipelineConfiguration.DEMOG_CODING_PLANS:
             for cc in plan.coding_configurations:
                 if cc.include_in_theme_distribution == Codes.FALSE:
                     continue
@@ -311,7 +311,7 @@ if __name__ == "__main__":
             survey_counts["Total Participants %"] = \
                 round(survey_counts["Total Participants"] / total_survey_counts["Total Participants"] * 100, 1)
 
-        for plan in PipelineConfiguration.SURVEY_CODING_PLANS:
+        for plan in PipelineConfiguration.DEMOG_CODING_PLANS:
             for cc in plan.coding_configurations:
                 if cc.include_in_theme_distribution == Codes.FALSE:
                     continue
@@ -460,7 +460,7 @@ if __name__ == "__main__":
         episode = episodes[rqa_plan.raw_field]
 
         for rqa_cc in rqa_plan.coding_configurations:
-            for survey_plan in PipelineConfiguration.SURVEY_CODING_PLANS:
+            for survey_plan in PipelineConfiguration.DEMOG_CODING_PLANS:
                 for survey_cc in survey_plan.coding_configurations:
                     if survey_cc.code_scheme != CodeSchemes.KENYA_COUNTY:
                         continue
@@ -542,7 +542,7 @@ if __name__ == "__main__":
         episode = episodes[rqa_plan.raw_field]
 
         for rqa_cc in rqa_plan.coding_configurations:
-            for survey_plan in PipelineConfiguration.SURVEY_CODING_PLANS:
+            for survey_plan in PipelineConfiguration.DEMOG_CODING_PLANS:
                 for survey_cc in survey_plan.coding_configurations:
                     if survey_cc.code_scheme != CodeSchemes.KENYA_CONSTITUENCY:
                         continue

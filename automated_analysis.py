@@ -583,7 +583,7 @@ if __name__ == "__main__":
                                 if demog_cc.coded_field != "constituency_coded":
                                     continue
 
-                                demog_code_id = msg.get(f"{demog_cc.coded_field}")['CodeID']
+                                demog_code_id = msg.get(demog_cc.coded_field)['CodeID']
                                 constituency_string_value.append(
                                     demog_cc.code_scheme.get_code_with_code_id(demog_code_id).string_value)
 

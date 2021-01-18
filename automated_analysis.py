@@ -560,7 +560,7 @@ if __name__ == "__main__":
                  "`generate_constituency_theme_distribution_maps` is set to False")
 
     # Export raw messages labelled with accountability and safeguarding labels.
-    log.info("Exporting success story raw messages for each episode...")
+    log.info("Exporting accountability raw messages for each episode...")
     accountability_messages = []  # of dict of code_string_value to avf-uid and raw messages
     accountability_code_ids = ["code-SG-e1f8b4bd", "code-A-a542fb02", "code-6fb4eedc", "code-3947a06d",
                                "code-3e5d3637", "code-62f6430b",

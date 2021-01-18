@@ -564,7 +564,8 @@ if __name__ == "__main__":
     accountability_messages = []  # of dict of code_string_value to avf-uid and raw messages
     accountability_code_ids = ["code-SG-e1f8b4bd", "code-A-a542fb02", "code-6fb4eedc", "code-3947a06d",
                                "code-3e5d3637", "code-62f6430b",
-                               "code-409dc0ba", "code-1fe49371"]
+                               "code-409dc0ba", "code-1fe49371"] # safeguarding, accountability and the `evaluation accountability dataset`
+                                                                 # thamatic normal codes
 
     for plan in PipelineConfiguration.RQA_CODING_PLANS:
         for cc in plan.coding_configurations:

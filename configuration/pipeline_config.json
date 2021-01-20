@@ -7,14 +7,7 @@
       "TokenFileURL": "gs://avf-credentials/oxfam-kenya-textit-token.txt",
       "ContactsFileName": "oxfam_wash_contacts",
       "ActivationFlowNames": [
-        "oxfam_wash_s01e01_activation",
-        "oxfam_wash_s01e02_activation",
-        "oxfam_wash_s01e03_activation",
-        "oxfam_wash_s01e01_beneficiaries_sms_ad",
-        "Oxfam_wash_s01e02_beneficiaries_sms_ad",
-        "oxfam_wash_s01e03_noise_handler",
-        "oxfam_wash_s01_accountability_follow_up",
-        "oxfam_wash_s01_programme_evaluation"
+        "oxfam_wash_s01_close_out_activation"
       ],
       "SurveyFlowNames": [
         "oxfam_wash_s01_demog"
@@ -64,6 +57,10 @@
     {"RapidProKey": "Rqa_S01E03_Noise_Handler (Text) - oxfam_wash_s01e03_noise_handler", "PipelineKey": "rqa_s01e03_noise_handler_raw", "IsActivationMessage": true},
     {"RapidProKey": "Rqa_S01E03_Noise_Handler (Run ID) - oxfam_wash_s01e03_noise_handler", "PipelineKey": "rqa_s01e03_noise_handler_run_id"},
     {"RapidProKey": "Rqa_S01E03_Noise_Handler (Time) - oxfam_wash_s01e03_noise_handler", "PipelineKey": "sent_on"},
+
+    {"RapidProKey": "S01_Close_Out (Text) - oxfam_wash_s01_close_out_activation", "PipelineKey": "s01_close_out_raw", "IsActivationMessage": true},
+    {"RapidProKey": "S01_Close_Out (Run ID) - oxfam_wash_s01_close_out_activation", "PipelineKey": "s01_close_out_run_id"},
+    {"RapidProKey": "S01_Close_Out (Time) - oxfam_wash_s01_close_out_activation", "PipelineKey": "sent_on"},
 
     {"RapidProKey": "Rqa_S01_Programme_Evaluation (Text) - oxfam_wash_s01_programme_evaluation", "PipelineKey": "rqa_s01_programme_evaluation_raw"},
     {"RapidProKey": "Rqa_S01_Programme_Evaluation (Run ID) - oxfam_wash_s01_programme_evaluation", "PipelineKey": "rqa_s01_programme_evaluation_run_id"},

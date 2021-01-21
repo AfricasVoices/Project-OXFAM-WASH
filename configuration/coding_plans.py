@@ -108,6 +108,24 @@ def get_rqa_coding_plans(pipeline_name):
                    ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("OXFAM WASH s01e03 Noise Handler"),
                    raw_field_fold_strategy=FoldStrategies.concatenate),
 
+        CodingPlan(raw_field="s01_close_out_raw",
+                   time_field="sent_on",
+                   run_id_field="s01_close_out_run_id",
+                   coda_filename="OXFAM_WASH_s01_Close_Out.json",
+                   icr_filename="oxfam_wash_s01_close_out.csv",
+                   coding_configurations=[
+                       CodingConfiguration(
+                           coding_mode=CodingModes.MULTIPLE,
+                           code_scheme=CodeSchemes.S01_CLOSE_OUT,
+                           coded_field="s01_close_out_coded",
+                           analysis_file_key="s01_close_out",
+                           fold_strategy=lambda x, y: FoldStrategies.list_of_labels(CodeSchemes.S01_CLOSE_OUT, x,
+                                                                                    y)
+                       )
+                   ],
+                   ws_code=CodeSchemes.WS_CORRECT_DATASET.get_code_with_match_value("OXFAM WASH S01 Close Out"),
+                   raw_field_fold_strategy=FoldStrategies.concatenate),
+
     ]
 
 def get_demog_coding_plans(pipeline_name):

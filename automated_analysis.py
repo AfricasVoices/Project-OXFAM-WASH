@@ -231,7 +231,7 @@ if __name__ == "__main__":
         survey_counts = OrderedDict()
         survey_counts["Total Participants"] = 0
         survey_counts["Total Participants %"] = None
-        for plan in PipelineConfiguration.SURVEY_CODING_PLANS:
+        for plan in PipelineConfiguration.DEMOG_CODING_PLANS:
             for cc in plan.coding_configurations:
                 if cc.include_in_theme_distribution == Codes.FALSE:
                     continue
@@ -245,7 +245,7 @@ if __name__ == "__main__":
         return survey_counts
 
     def update_survey_counts(survey_counts, td):
-        for plan in PipelineConfiguration.SURVEY_CODING_PLANS:
+        for plan in PipelineConfiguration.DEMOG_CODING_PLANS:
             for cc in plan.coding_configurations:
                 if cc.include_in_theme_distribution == Codes.FALSE:
                     continue
@@ -268,7 +268,7 @@ if __name__ == "__main__":
             survey_counts["Total Participants %"] = \
                 round(survey_counts["Total Participants"] / total_survey_counts["Total Participants"] * 100, 1)
 
-        for plan in PipelineConfiguration.SURVEY_CODING_PLANS:
+        for plan in PipelineConfiguration.DEMOG_CODING_PLANS:
             for cc in plan.coding_configurations:
                 if cc.include_in_theme_distribution == Codes.FALSE:
                     continue
@@ -417,7 +417,7 @@ if __name__ == "__main__":
         episode = episodes[rqa_plan.raw_field]
 
         for rqa_cc in rqa_plan.coding_configurations:
-            for survey_plan in PipelineConfiguration.SURVEY_CODING_PLANS:
+            for survey_plan in PipelineConfiguration.DEMOG_CODING_PLANS:
                 for survey_cc in survey_plan.coding_configurations:
                     if survey_cc.code_scheme != CodeSchemes.KENYA_COUNTY:
                         continue
@@ -499,7 +499,7 @@ if __name__ == "__main__":
         episode = episodes[rqa_plan.raw_field]
 
         for rqa_cc in rqa_plan.coding_configurations:
-            for survey_plan in PipelineConfiguration.SURVEY_CODING_PLANS:
+            for survey_plan in PipelineConfiguration.DEMOG_CODING_PLANS:
                 for survey_cc in survey_plan.coding_configurations:
                     if survey_cc.code_scheme != CodeSchemes.KENYA_CONSTITUENCY:
                         continue
@@ -558,5 +558,50 @@ if __name__ == "__main__":
     else:
         log.info("Skipping generating a map of per-constituency theme participation because "
                  "`generate_constituency_theme_distribution_maps` is set to False")
+
+    # Export raw messages labelled with accountability and safeguarding labels.
+    log.info("Exporting accountability raw messages for each episode...")
+    accountability_messages = []  # of dict of code_string_value to avf-uid and raw messages
+    accountability_code_ids = ["code-SG-e1f8b4bd", "code-A-a542fb02", "code-6fb4eedc", "code-3947a06d",
+                               "code-3e5d3637", "code-62f6430b",
+                               "code-409dc0ba", "code-1fe49371"] # safeguarding, accountability and the `evaluation accountability dataset`
+                                                                 # thamatic normal codes
+
+    for plan in PipelineConfiguration.RQA_CODING_PLANS:
+        for cc in plan.coding_configurations:
+            for msg in messages:
+                if not AnalysisUtils.labelled(msg, CONSENT_WITHDRAWN_KEY, plan):
+                    continue
+
+                for label in msg[cc.coded_field]:
+                    code = cc.code_scheme.get_code_with_code_id(label["CodeID"])
+
+                    constituency_string_value = []
+                    if code.code_id in accountability_code_ids:
+                        # add the constituency label for the participant
+                        for demog_plan in PipelineConfiguration.DEMOG_CODING_PLANS:
+                            for demog_cc in demog_plan.coding_configurations:
+                                if demog_cc.coded_field != "constituency_coded":
+                                    continue
+
+                                demog_code_id = msg.get(demog_cc.coded_field)['CodeID']
+                                constituency_string_value.append(
+                                    demog_cc.code_scheme.get_code_with_code_id(demog_code_id).string_value)
+
+                        accountability_messages.append({
+                            "Dataset": plan.dataset_name,
+                            "UID": msg['uid'],
+                            "Code": code.string_value,
+                            "Raw Message": msg[plan.raw_field],
+                            "Constituency": constituency_string_value[0]
+                        })
+
+    with open(f"{automated_analysis_output_dir}/accountability_messages.csv", "w") as f:
+        headers = ["Dataset", "UID", "Code", "Raw Message", "Constituency"]
+        writer = csv.DictWriter(f, fieldnames=headers, lineterminator="\n")
+        writer.writeheader()
+
+        for msg in accountability_messages:
+            writer.writerow(msg)
 
     log.info("Automated analysis python script complete")

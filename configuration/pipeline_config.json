@@ -12,11 +12,13 @@
         "oxfam_wash_s01e03_activation",
         "oxfam_wash_s01e01_beneficiaries_sms_ad",
         "Oxfam_wash_s01e02_beneficiaries_sms_ad",
-        "oxfam_wash_s01e03_noise_handler"
+        "oxfam_wash_s01e03_noise_handler",
+        "oxfam_wash_s01_accountability_follow_up",
+        "oxfam_wash_s01_programme_evaluation",
+        "oxfam_wash_s01_close_out_activation"
       ],
       "SurveyFlowNames": [
-        "oxfam_wash_s01_demog",
-        "oxfam_wash_s01_programme_evaluation"
+        "oxfam_wash_s01_demog"
       ],
       "TestContactUUIDs": [
         "94075043-57c6-43c7-8b89-880478ccad8e",
@@ -48,6 +50,10 @@
     {"RapidProKey": "Rqa_S01E03 (Run ID) - oxfam_wash_s01e03_activation", "PipelineKey": "rqa_s01e03_run_id"},
     {"RapidProKey": "Rqa_S01E03 (Time) - oxfam_wash_s01e03_activation", "PipelineKey": "sent_on"},
 
+    {"RapidProKey": "Oxfam_Wash_Accountability (Text) - oxfam_wash_s01_accountability_follow_up", "PipelineKey": "rqa_s01_accountability_raw","IsActivationMessage": true},
+    {"RapidProKey": "Oxfam_Wash_Accountability (Run ID) - oxfam_wash_s01_accountability_follow_up", "PipelineKey": "rqa_s01_accountability_run_id"},
+    {"RapidProKey": "Oxfam_Wash_Accountability (Time) - oxfam_wash_s01_accountability_follow_up", "PipelineKey": "sent_on"},
+
     {"RapidProKey": "Oxfam_Beneficiary_Consent (Text) - oxfam_wash_s01e01_sms_ad", "PipelineKey": "oxfam_beneficiary_consent_raw", "IsActivationMessage": true},
     {"RapidProKey": "Oxfam_Beneficiary_Consent (Run ID) - oxfam_wash_s01e01_sms_ad", "PipelineKey": "oxfam_beneficiary_consent_run_id"},
     {"RapidProKey": "Oxfam_Beneficiary_Consent (Time) - oxfam_wash_s01e01_sms_ad", "PipelineKey": "sent_on"},
@@ -60,7 +66,12 @@
     {"RapidProKey": "Rqa_S01E03_Noise_Handler (Run ID) - oxfam_wash_s01e03_noise_handler", "PipelineKey": "rqa_s01e03_noise_handler_run_id"},
     {"RapidProKey": "Rqa_S01E03_Noise_Handler (Time) - oxfam_wash_s01e03_noise_handler", "PipelineKey": "sent_on"},
 
+    {"RapidProKey": "S01_Close_Out (Text) - oxfam_wash_s01_close_out_activation", "PipelineKey": "s01_close_out_raw", "IsActivationMessage": true},
+    {"RapidProKey": "S01_Close_Out (Run ID) - oxfam_wash_s01_close_out_activation", "PipelineKey": "s01_close_out_run_id"},
+    {"RapidProKey": "S01_Close_Out (Time) - oxfam_wash_s01_close_out_activation", "PipelineKey": "sent_on"},
+
     {"RapidProKey": "Rqa_S01_Programme_Evaluation (Text) - oxfam_wash_s01_programme_evaluation", "PipelineKey": "rqa_s01_programme_evaluation_raw"},
+    {"RapidProKey": "Rqa_S01_Programme_Evaluation (Run ID) - oxfam_wash_s01_programme_evaluation", "PipelineKey": "rqa_s01_programme_evaluation_run_id"},
     {"RapidProKey": "Rqa_S01_Programme_Evaluation (Time) - oxfam_wash_s01_programme_evaluation", "PipelineKey": "sent_on"},
 
     {"RapidProKey": "Constituency (Text) - oxfam_wash_s01_demog", "PipelineKey": "location_raw"},

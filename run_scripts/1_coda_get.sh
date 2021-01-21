@@ -19,6 +19,7 @@ DATASETS=(
     "OXFAM_WASH_s01e02"
     "OXFAM_WASH_s01e03"
     "OXFAM_WASH_s01e03_Noise_Handler"
+    "OXFAM_WASH_s01_Close_Out"
 
     "OXFAM_WASH_age"
     "OXFAM_WASH_gender"
@@ -26,10 +27,11 @@ DATASETS=(
     "OXFAM_WASH_disabled"
     "OXFAM_WASH_Beneficiary_Consent"
     "OXFAM_WASH_s01_Programme_Evaluation"
+    "OXFAM_WASH_s01_Accountability"
 )
 
 cd "$CODA_V2_ROOT/data_tools"
-git checkout "e895887b3abceb63bab672a262d5c1dd73dcad92"  # (master which supports incremental get)
+git checkout "c47977d03f96ba3e97c704c967c755f0f8b666cb"  # (master which supports incremental add)
 
 mkdir -p "$DATA_ROOT/Coded Coda Files"
 

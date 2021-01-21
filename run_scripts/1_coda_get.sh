@@ -31,7 +31,7 @@ DATASETS=(
 )
 
 cd "$CODA_V2_ROOT/data_tools"
-git checkout "c47977d03f96ba3e97c704c967c755f0f8b666cb"  # (master which supports incremental get)
+git checkout "c47977d03f96ba3e97c704c967c755f0f8b666cb"  # (master which supports incremental add)
 
 mkdir -p "$DATA_ROOT/Coded Coda Files"
 

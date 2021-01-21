@@ -7,6 +7,14 @@
       "TokenFileURL": "gs://avf-credentials/oxfam-kenya-textit-token.txt",
       "ContactsFileName": "oxfam_wash_contacts",
       "ActivationFlowNames": [
+        "oxfam_wash_s01e01_activation",
+        "oxfam_wash_s01e02_activation",
+        "oxfam_wash_s01e03_activation",
+        "oxfam_wash_s01e01_beneficiaries_sms_ad",
+        "Oxfam_wash_s01e02_beneficiaries_sms_ad",
+        "oxfam_wash_s01e03_noise_handler",
+        "oxfam_wash_s01_accountability_follow_up",
+        "oxfam_wash_s01_programme_evaluation",
         "oxfam_wash_s01_close_out_activation"
       ],
       "SurveyFlowNames": [
